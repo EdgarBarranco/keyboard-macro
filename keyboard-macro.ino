@@ -38,7 +38,12 @@ void loop(){
     Serial.println(key,HEX);
 //    Serial.print("Macro: ");
 //    Serial.println(mtx[key]);
-    Keyboard.print(mtx[key]);
+//    Keyboard.print(mtx[key]);
+    int count = 0;
+    for (int i = 0; i < strlen(mtx[key]); i++) {
+      Keyboard.print(mtx[key][count++]);
+      delay(100);
+    }
     digitalWrite(led, LOW);
   }
   else if (Serial.available()){
